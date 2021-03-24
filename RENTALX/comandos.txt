@@ -12,3 +12,23 @@ yarn add express
 yarn add @types/express -D
 yarn add typescript -D 
 yarn add ts-node-dev -D   
+
+
+**** ---- ****
+
+sudo docker ps
+sudo docker ps -a
+sudo docker start id-container/name
+sudo docker stop id-container/name
+sudo docker rm id-container/name
+
+sudo docker-compose up -d
+sudo docker-compse start
+sudo docker-compose stop
+sudo docker-compose down -> remover
+
+sudo docker exec -it name(ex.: rentx) /bin/bash
+ctrl + d -> sair
+
+sudo docker logs name(ex.: rentx)
+sudo docker logs name(ex.: rentx) -f
