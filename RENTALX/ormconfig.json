@@ -1,0 +1,7 @@
+{
+  "type": "postgrtes",
+  "host": "localhost",
+  "username": "postgrtes",
+  "password": "postgrtes",
+  "database": "rentx"
+}

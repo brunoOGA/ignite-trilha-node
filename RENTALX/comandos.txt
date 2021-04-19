@@ -16,16 +16,19 @@ yarn add ts-node-dev -D
 
 **** ---- ****
 
+sudo docker build -t rentx .
+sudo docker run -p 3333:3333 rentx
+
 sudo docker ps
 sudo docker ps -a
 sudo docker start id-container/name
 sudo docker stop id-container/name
 sudo docker rm id-container/name
 
-sudo docker-compose up -d
+sudo docker-compose up -d => para subir o container em background
 sudo docker-compse start
-sudo docker-compose stop
-sudo docker-compose down -> remover
+sudo docker-compose stop => para parar o container
+sudo docker-compose down -> para remover o container(remover tudo que foi criado)
 
 sudo docker exec -it name(ex.: rentx) /bin/bash
 ctrl + d -> sair
