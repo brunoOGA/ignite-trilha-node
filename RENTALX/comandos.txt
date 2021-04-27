@@ -35,3 +35,93 @@ ctrl + d -> sair
 
 sudo docker logs name(ex.: rentx)
 sudo docker logs name(ex.: rentx) -f
+
+
+**** ---- ****
+
+**RF** => Requisitos funcionais
+- Funcionalidades que nossa aplicação deve ter ex.: cadastro de categoria
+
+**RNF** => Requisitos não funcionais
+- Regras que não estão ligados as regras de negocio da aplicação ex.: dados salvos no bd postgres ...
+
+**RN** => Regra de negócios
+- Regras por trás dos nossos requisitos ex.: não deve ser possível cadastrar uma categoria com um nome já existente
+
+Cadastro de carro: {
+  RF: {
+    Deve ser possível ou usuário deve poder
+    - Deve ser possível cadastrar um carro
+  },
+  RNF: {
+
+  },
+  RN: {
+    - Não deve ser possível cadastrar um carro uma placa já existente.
+    - Não deve ser possível alterar a placa de um carrro já cadastrado.
+    - O carro deve ser cadastrado, por padrão, com disponibilidade.
+    - O usuário responsável pelo cadastro deve ser um usuário administrador.
+  }
+}
+
+Litagems de carros: {
+  RF: {
+    - Deve ser possível listar todos os carros disponíveis.
+    - Deve ser possível listar todos os carros disponíveis pelo nome da categoria
+    - Deve ser possível listar todos os carros disponíveis pelo nome do carro
+  },
+  RNF: {
+
+  },
+  RN: {
+    - O usuário não precisa estar logado no sistema.
+  }
+}
+
+Cadastro de especificação no carro: {
+  RF: {
+    - Deve ser possível cadastrar uma especificação para um carro.
+    - Deve ser possível listar todas as especificações
+    - Deve ser possível listar todos os carros
+  }
+  RNF: {
+
+  },
+  RN: {
+    - Não deve ser possível cadastras uma especificação para um carro não cadastrado.
+    - Não deve ser possível cadastrar uma especificação já existente para o mesmo carro.
+    - O usuário responsável pelo cadastro deve ser um usuário administrador.
+  }
+}
+
+Cadastro de imagens do carro: {
+  RF: {
+    - Deve ser possível cadastrar a imagem do carro
+    - Deve ser possível listar todos os carros
+  }
+
+  RNF: {
+    - Utilizar o multer par ao upload dos arq2uivos
+  }
+
+  RN: {
+    - o usuário deve poder cadastrar mais mais de uma imagem para o mesmo carro.
+    - O usuário responsável pelo cadastro deve ser um usuário administrador.
+  }
+}
+
+Aluguel de carro: {
+  RF: {
+    - Deve ser possível cadastrar um aluguel
+  }
+
+  RNF: {
+
+  }
+
+  RN: {
+    - O aluguel deve ter duração mínima de 24h.
+    - Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo usuário.
+    - Não deve ser possível cadastrar um novo aluguel caso já exista um aberto para o mesmo carro.
+  }
+}
