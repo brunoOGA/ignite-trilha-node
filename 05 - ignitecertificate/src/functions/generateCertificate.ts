@@ -1,8 +1,8 @@
-import * as chromium from "chrome-aws-lambda";
-import * as path from "path";
-import * as fs from "fs";
-import * as handlebars from "handlebars";
-import * as dayjs from "dayjs";
+import chromium from "chrome-aws-lambda";
+import path from "path";
+import fs from "fs";
+import handlebars from "handlebars";
+import dayjs from "dayjs";
 
 import {document} from "../utils/dynamodbClient";
 
@@ -54,7 +54,26 @@ export const handle = async (event) => {
 
   const content = await compile(data);
 
+  const browser = await chromium.puppeteer.launch({
+    headless: true,
+    args: chromium.args,
+    defaultViewport: chromium.defaultViewport,
+    executablePath: await chromium.executablePath
+  })
 
+  const page = await browser.newPage();
+
+  await page.setContent(content);
+
+  const pdf = await page.pdf({
+    format: "a4",
+    landscape: true,
+    path: process.env.IS_OFFLINE ? "certificate.pdf" : null,
+    printBackground: true,
+    preferCSSPageSize: true,
+  });
+
+  await browser.close();
 
   return {
     statusCode: 201,
